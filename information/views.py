@@ -9,3 +9,20 @@ def test(request):
         'buttons': ["선택 1", "선택 2", "선택 3"]
     }
     return Response(data)
+
+
+@api_view(['POST'])
+def test2(request):
+    if request.POST['content'] == "선택 1":
+        data = {
+            "message": {
+                "text": "Pando"
+            }
+        }
+    else:
+        data = {
+            "message": {
+                "text": "test"
+            }
+        }
+    return Response(data)
