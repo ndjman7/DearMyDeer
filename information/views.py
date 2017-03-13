@@ -2,6 +2,8 @@ import json
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
+from information.utils import future_centennial_hall_food
+
 
 @api_view(['GET'])
 def test(request):
@@ -22,7 +24,7 @@ def test2(request):
     if content == "미래백년관":
         data = {
             "message": {
-                "text": "미래백년관"
+                "text": future_centennial_hall_food(0)
             }
         }
     elif content == "밀레니엄관":
