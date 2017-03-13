@@ -15,14 +15,10 @@ def test(request):
 def test2(request):
     if request.POST['content'] == "선택 1":
         data = {
-            "message": {
-                "text": "Pando"
-            }
+            "text": "Pando"
         }
     else:
         data = {
-            "message": {
-                "text": "test"
-            }
+            "text": "test"
         }
     return Response(data)
