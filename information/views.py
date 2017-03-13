@@ -13,12 +13,9 @@ def test(request):
 
 @api_view(['POST'])
 def test2(request):
-    if request.POST['content'] == "선택 1":
-        data = {
+    data = {
+        "message": {
             "text": "Pando"
         }
-    else:
-        data = {
-            "text": "test"
-        }
+    }
     return Response(data)
