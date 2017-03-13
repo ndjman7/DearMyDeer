@@ -43,4 +43,9 @@ def test2(request):
             }
         }
 
+    data['keyword'] = {
+        "type": "buttons",
+        "buttons": ["미래백년관", "밀레니엄관", "학식정보"]
+    }
+
     return Response(data)
