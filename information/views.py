@@ -1,9 +1,11 @@
 import json
+from django.utils import timezone
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 from information.utils import future_centennial_hall_food
 from information.utils import return_today
+from .models import DeerSchoolFood
 
 
 @api_view(['GET'])
@@ -23,9 +25,15 @@ def test2(request):
     content = received_json_data['content']
     data = dict()
     if content == "미래백년관":
+        try:
+            deer_food = DeerSchoolFood.objects.get(date=timezone.localtime(timezone.now()).date())
+        except DeerSchoolFood.DoesNotExist:
+            deer_food = DeerSchoolFood.objects.create(
+                future_centennial_hall_food=future_centennial_hall_food(return_today())
+            )
         data = {
             "message": {
-                "text": future_centennial_hall_food(return_today())
+                "text": deer_food.future_centennial_hall_food
             }
         }
     elif content == "밀레니엄관":
