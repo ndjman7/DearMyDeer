@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 from information.utils import future_centennial_hall_food
+from information.utils import return_today
 
 
 @api_view(['GET'])
@@ -24,7 +25,7 @@ def test2(request):
     if content == "미래백년관":
         data = {
             "message": {
-                "text": future_centennial_hall_food(0)
+                "text": future_centennial_hall_food(return_today())
             }
         }
     elif content == "밀레니엄관":
