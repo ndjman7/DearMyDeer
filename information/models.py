@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
+class DeerSchoolFood(models.Model):
+    date = models.DateField(auto_now_add=True, unique=True)
+    future_centennial_hall_food = models.TextField(null=True)
