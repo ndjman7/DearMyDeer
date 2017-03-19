@@ -9,16 +9,20 @@ from .models import DeerSchoolFood
 
 
 @api_view(['GET'])
-def test(request):
+def keyboard(request):
     data = {
         'type': 'buttons',
-        'buttons': ["미래백년관", "밀레니엄관", "학식정보"]
+        'buttons': [
+            "미래백년관",
+            "밀레니엄관",
+            "학식정보",
+        ]
     }
     return Response(data)
 
 
 @api_view(['POST'])
-def test2(request):
+def message(request):
 
     json_data = (request.body).decode('utf-8')
     received_json_data = json.loads(json_data)
@@ -55,7 +59,11 @@ def test2(request):
 
     data['keyboard'] = {
         "type": "buttons",
-        "buttons": ["미래백년관", "밀레니엄관", "학식정보"]
+        "buttons": [
+            "미래백년관",
+            "밀레니엄관",
+            "학식정보",
+        ]
     }
 
     return Response(data)
