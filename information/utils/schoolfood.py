@@ -27,6 +27,8 @@ def future_centennial_hall_food(today):
         r = requests.get('https://www.smu.ac.kr/mbs/smu/jsp/restaurant/restaurant.jsp?configIdx=27144&id=smu_040501000000')
         bs = BeautifulSoup(r.text, 'html.parser')
         food_list = bs.find_all('tr')
+        if len(food_list) < 10:
+            return '아직 학식정보가 올라오지 않았습니다.'
         string = ''
         string += timezone.localtime(timezone.now()).strftime('%Y년 %m월 %d일 ')
         string += '{}요일\n'.format(DAY_LIST[today])
@@ -63,6 +65,9 @@ def millennium_hall_food(today):
     else:
         r = requests.get('https://www.smu.ac.kr/mbs/smu/jsp/restaurant/restaurant.jsp?configIdx=27145&id=smu_040501020000')
         bs = BeautifulSoup(r.text, 'html.parser')
+        food_list = bs.find_all('tr')
+        if len(food_list) < 10:
+            return '아직 학식정보가 올라오지 않았습니다.'
         food_list = bs.select("#subContents > table > tbody:nth-of-type(1)")[0]
         string = ''
         string += timezone.localtime(timezone.now()).strftime('%Y년 %m월 %d일 ')
