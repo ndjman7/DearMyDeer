@@ -51,7 +51,7 @@ def message(request):
         data = {
             "message": {
                 "photo": {
-                    "url": "https://unripers.com/media/background.jpeg",
+                    "url": "http://unripers.com/media/background.jpeg",
                     "width": 640,
                     "height": 480
                 },
