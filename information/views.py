@@ -50,15 +50,13 @@ def message(request):
     elif content == "페이스북":
         data = {
             "message": {
-                "text":
-                    "디어마이디어 공식 페이지",
                 "photo": {
                     "url": "https://unripers.com/media/background.jpeg",
                     "width": 640,
                     "height": 480
                 },
                 "message_button": {
-                    "label": "디어마이디어 공식 페이지",
+                    "label": "디마디 공식 페이지",
                     "url": "https://www.facebook.com/smudearmydeer/"
                 }
             }
