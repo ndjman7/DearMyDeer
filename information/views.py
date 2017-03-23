@@ -15,7 +15,7 @@ def keyboard(request):
         'buttons': [
             "미래백년관",
             "밀레니엄관",
-            "학식정보",
+            "페이스북",
         ]
     }
     return Response(data)
@@ -47,13 +47,20 @@ def message(request):
             }
         }
 
-    elif content == "학식정보":
+    elif content == "페이스북":
         data = {
             "message": {
                 "text":
-                    "중식 : 11시 00분 ~ 14시 00분\
-                     간식 : 16시 00분 ~ 17시 00분\
-                     석식 : 17시 00분 ~ 18시 30분"
+                    "디어마이디어 공식 페이지",
+                "photo": {
+                    "url": "https://unripers.com/media/background.jpeg",
+                    "width": 640,
+                    "height": 480
+                },
+                "message_button": {
+                    "label": "디어마이디어 공식 페이지",
+                    "url": "https://www.facebook.com/smudearmydeer/"
+                }
             }
         }
 
@@ -62,7 +69,7 @@ def message(request):
         "buttons": [
             "미래백년관",
             "밀레니엄관",
-            "학식정보",
+            "페이스북",
         ]
     }
 
