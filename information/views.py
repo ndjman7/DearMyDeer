@@ -13,6 +13,7 @@ def keyboard(request):
     data = {
         'type': 'buttons',
         'buttons': [
+            "공지사항"
             "미래백년관",
             "밀레니엄관",
             "페이스북",
@@ -28,6 +29,7 @@ def message(request):
     received_json_data = json.loads(json_data)
     content = received_json_data['content']
     data = dict()
+
     if content == "미래백년관":
         deer_food = DeerSchoolFood.objects.get_or_create(date=timezone.localtime(timezone.now()).date())[0]
         if deer_food.future_centennial_hall_food is None:
@@ -65,6 +67,7 @@ def message(request):
     data['keyboard'] = {
         "type": "buttons",
         "buttons": [
+            "공지사항"
             "미래백년관",
             "밀레니엄관",
             "페이스북",
