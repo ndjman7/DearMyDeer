@@ -30,7 +30,14 @@ def message(request):
     content = received_json_data['content']
     data = dict()
 
-    if content == "미래백년관":
+    if content == "공지사항":
+        data = {
+            "message": {
+                "text": "상명대학교 홈페이지 공지사항입니다."
+            }
+        }
+
+    elif content == "미래백년관":
         deer_food = DeerSchoolFood.objects.get_or_create(date=timezone.localtime(timezone.now()).date())[0]
         if deer_food.future_centennial_hall_food is None:
             deer_food.future_centennial_hall_food = future_centennial_hall_food(return_today())
