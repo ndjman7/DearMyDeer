@@ -13,7 +13,7 @@ def keyboard(request):
     data = {
         'type': 'buttons',
         'buttons': [
-            "공지사항"
+            "공지사항",
             "미래백년관",
             "밀레니엄관",
             "페이스북",
