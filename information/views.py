@@ -25,9 +25,7 @@ def keyboard(request):
 @api_view(['POST'])
 def message(request):
 
-    json_data = (request.body).decode('utf-8')
-    received_json_data = json.loads(json_data)
-    content = received_json_data['content']
+    content = request.data['content']
     data = dict()
 
     if content == "공지사항":
@@ -74,7 +72,7 @@ def message(request):
     data['keyboard'] = {
         "type": "buttons",
         "buttons": [
-            "공지사항"
+            "공지사항",
             "미래백년관",
             "밀레니엄관",
             "페이스북",
